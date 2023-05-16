@@ -1,8 +1,13 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
         Task thermoHW = new Task("Thermochemistry worksheet",Task.Priority.HIGH);
-        System.out.println("Current task completed? = " + thermoHW.completed);
-        thermoHW.finish();
-        System.out.println("Current task completed? = " + thermoHW.completed);
+        Task stoichiometryQuiz = new Task("Stoichiometry quiz",Task.Priority.MEDIUM);
+        Task extraCreditWorksheet = new Task("Extra credit redox ws",Task.Priority.LOW);
+
+        TaskList tasks = new TaskList(new ArrayList<Task>(List.of(thermoHW, stoichiometryQuiz, extraCreditWorksheet)));
+        tasks.read();
     }
 }
