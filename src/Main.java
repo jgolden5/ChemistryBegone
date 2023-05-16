@@ -1,5 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Chemistry begone!");
+        Task thermoHW = new Task("Thermochemistry worksheet",Task.Priority.HIGH);
+        System.out.println("Current task name = " + thermoHW.taskName);
     }
 }
