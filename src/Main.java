@@ -3,22 +3,20 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        Task taskA = new Task("Thermochemistry worksheet",Task.Priority.HIGH);
-        Task taskB = new Task("Stoichiometry quiz",Task.Priority.MEDIUM);
-        Task taskC = new Task("Extra credit redox ws",Task.Priority.LOW);
-        Task[] tasksArr = {taskA, taskB, taskC};
+        Task taskA = new Task("Homework",Task.Priority.HIGH);
+        Task taskB = new Task("Practice Quiz",Task.Priority.LOW);
+        Task taskC = new Task("Study guide",Task.Priority.MEDIUM);
+        Task taskD = new Task("Exam",Task.Priority.HIGH);
+        Task[] tasksArr = {taskA, taskB, taskC, taskD};
 
         TaskList tasks = new TaskList(tasksArr);
-        tasks.read();
 
-        Task taskD = new Task("Kahn Academy stoichiometry", Task.Priority.MEDIUM);
-        tasks.addTask(taskD);
-        System.out.println("");
+        System.out.println("Unsorted");
         tasks.read();
-
-        Task taskE = new Task("Chemistry textbook studies", Task.Priority.LOW);
-        tasks.addTask(taskE);
         System.out.println("");
+
+        tasks.sortByPriority();
+        System.out.println("Sorted by priority");
         tasks.read();
     }
 }
