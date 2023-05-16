@@ -16,9 +16,33 @@ public class TaskList {
         }
     }
 
-//    public void sort() {
-//        for(int i = 0; i < tasks.length; i++) {
-//            Task currentTask = tasks[i];
+    public void addTask(Task newTask) {
+        Task[] newTaskArray = new Task[tasks.length + 1];
+        for(int i = 0; i < tasks.length + 1; i++) {
+            if(i == tasks.length) {
+                newTaskArray[i] = newTask;
+            } else {
+                newTaskArray[i] = tasks[i];
+            }
+        }
+        this.tasks = newTaskArray;
+    }
+
+//    public void sortByPriority() {
+//        for(int i = 0; i < tasks.length - 1; i++) {
+//            for(int j = i + 1; j < tasks.length; j++) {
+//                private static void swap(Task.Priority a, Task.Priority b) {
+//                    if;
+//                }
+//                Task.Priority priorityA = tasks[i].priority;
+//                Task.Priority priorityB = tasks[j].priority;
+//                switch(priorityA) {
+//                    case HIGH:
+//                        if (priorityB == Task.Priority.MEDIUM) {
+//                            swap(priorityA, priorityB);
+//                        }
+//                }
+//            }
 //        }
 //    }
 
