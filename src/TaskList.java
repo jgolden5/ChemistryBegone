@@ -85,6 +85,21 @@ public class TaskList {
         }
     }
 
+    public void sortByCompletion() {
+        for(int i = 0; i < tasks.length - 1; i++) {
+            for(int j = i + 1; j < tasks.length; j++) {
+                if(tasks[i].completed && !tasks[j].completed) {
+                    swapTasksByIndex(i, j);
+                }
+            }
+        }
+    }
+
+    public void sort() {
+        sortByPriority();
+        sortByCompletion();
+    }
+
     public int searchByName(String desiredTaskName) {
         int desiredTaskIndex = -1;
         for(int i = 0; i < tasks.length; i++) {
