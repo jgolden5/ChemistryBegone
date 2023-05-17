@@ -6,7 +6,7 @@ Displays this helpful file with all user commands
 Displays all tasks on current task list, including their completion, names, and priority levels
 
 -sort
-Sorts all tasks by priority level (highest to lowest), and then prints the tasks list to prove they are sorted
+Sorts all tasks by priority level (highest to lowest) and completion (completed tasks last), and then prints the tasks list to prove they are sorted
 *Note: Once tasks are sorted they stay sorted
 
 -quit
