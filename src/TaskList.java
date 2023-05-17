@@ -16,33 +16,39 @@ public class TaskList {
     }
 
     public void read() {
-//        System.out.println("To do: ");
-        for(int i = 0; i < tasks.length; i++) {
-            Task currentTask = tasks[i];
-            String checkboxEmoji;
-            if(currentTask.completed) {
-                checkboxEmoji = "✅";
-            } else {
-                switch(currentTask.priority) {
-                    case HIGH:
-                        checkboxEmoji = "🟥";
-                        break;
-                    case MEDIUM:
-                        checkboxEmoji = "🟨";
-                        break;
-                    case LOW:
-                        checkboxEmoji = "🟦";
-                        break;
-                    default:
-                        checkboxEmoji = "";
+        System.out.println();
+        if (tasks.length == 0) {
+            System.out.println("No tasks to show");
+        } else {
+            for (int i = 0; i < tasks.length; i++) {
+                Task currentTask = tasks[i];
+                String checkboxEmoji;
+                if (currentTask.completed) {
+                    checkboxEmoji = "✅";
+                } else {
+                    switch (currentTask.priority) {
+                        case HIGH:
+                            checkboxEmoji = "🟥";
+                            break;
+                        case MEDIUM:
+                            checkboxEmoji = "🟨";
+                            break;
+                        case LOW:
+                            checkboxEmoji = "🟦";
+                            break;
+                        default:
+                            checkboxEmoji = "";
+                    }
                 }
+
+                System.out.println(checkboxEmoji + " " + currentTask.taskName + ". " +
+                        "Priority level: " + currentTask.priority + ".");
             }
-            System.out.println(checkboxEmoji + " " + currentTask.taskName + ". " +
-                    "Priority level: " + currentTask.priority + ".");
         }
+        System.out.println();
     }
 
-    public void addTask(Task newTask) {
+    public void add(Task newTask) {
         Task[] newTaskArray = new Task[tasks.length + 1];
         for(int i = 0; i < tasks.length + 1; i++) {
             if(i == tasks.length) {

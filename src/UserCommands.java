@@ -14,13 +14,16 @@ public class UserCommands {
 //        System.out.println("Command recognized as " + "'" + command + "'.");
 //        System.out.println("Parameters recognized as " + "'" + parameter1 + "'.");
             switch (command) {
-                case "addtask":
+                case "add":
                     System.out.println("Enter task name to be added:");
                     String parameter = scanner.nextLine().trim();
                     userAddTask(parameter, tasks);
                     break;
                 case "help":
                     help();
+                    break;
+                case "show":
+                    show(tasks);
                     break;
                 case "quit":
                     userOnline = false;
@@ -46,7 +49,7 @@ public class UserCommands {
             priority = Task.Priority.LOW;
             System.out.println("Priority not recognized. Set to low by default.");
         }
-        tasks.addTask((new Task(taskName,priority)));
+        tasks.add((new Task(taskName,priority)));
         System.out.println("Added task '" + taskName + "' with priority '" + priority + "' successfully.");
     }
 
@@ -63,6 +66,10 @@ public class UserCommands {
         } catch(IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void show(TaskList tasks) {
+        tasks.read();
     }
 
 }
