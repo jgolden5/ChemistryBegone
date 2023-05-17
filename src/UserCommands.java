@@ -20,7 +20,7 @@ public class UserCommands {
                     tasks.read();
                     break;
                 case "sort":
-                    tasks.sort();
+                    tasks.sortByPriority();
                     System.out.println("Task list sorted successsfully.");
                     tasks.read();
                     break;

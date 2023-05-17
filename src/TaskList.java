@@ -71,15 +71,14 @@ public class TaskList {
         tasks[index2] = temp;
     }
 
-    public void sort() {
+    public void sortByPriority() {
         for(int i = 0; i < tasks.length - 1; i++) {
             for(int j = i + 1; j < tasks.length; j++) {
-                if(tasks[i].priority == Task.Priority.HIGH) {
-                } else if(tasks[i].priority == Task.Priority.MEDIUM) {
+                if(tasks[i].priority == Task.Priority.MEDIUM) {
                     if (tasks[j].priority == Task.Priority.HIGH) {
                         swapTasksByIndex(i, j);
                     }
-                } else if(tasks[j].priority != Task.Priority.LOW) {
+                } else if(tasks[i].priority == Task.Priority.LOW && tasks[j].priority != Task.Priority.LOW) {
                     swapTasksByIndex(i, j);
                 }
             }
