@@ -1,9 +1,18 @@
+-help
+Displays this helpful file with all user commands
+
 -add
 Prompts user to enter task name to current task list
 (taskName)
 Next, prompts user to enter priority
 (priority) {either low, medium, or high. Defaults to LOW if command is not recognized}
-After this, the task is created with the user's input for its name and priority level.
+After this, the task is created with the user's input for its name and priority level
+
+-show
+Displays all tasks on current task list, including their completion, names, and priority levels
+
+-sort
+Sorts all tasks by priority level (highest to lowest), and then prints the tasks list to prove they are sorted.
 
 -quit
-exits user command line loop
+Exits user command line loop. (If this command is not executed, the command line never stops prompting the user.

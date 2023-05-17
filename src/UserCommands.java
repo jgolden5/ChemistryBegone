@@ -14,17 +14,21 @@ public class UserCommands {
 //        System.out.println("Command recognized as " + "'" + command + "'.");
 //        System.out.println("Parameters recognized as " + "'" + parameter1 + "'.");
             switch (command) {
+                case "help":
+                    help();
+                    break;
                 case "add":
                     System.out.println("Enter task name to be added:");
                     String parameter = scanner.nextLine().trim();
                     userAddTask(parameter, tasks);
                     break;
-                case "help":
-                    help();
-                    break;
                 case "show":
                     show(tasks);
                     break;
+                case "sort":
+                    tasks.sortByPriority();
+                    System.out.println("Task list sorted successsfully.");
+                    show(tasks);
                 case "quit":
                     userOnline = false;
                     break;
