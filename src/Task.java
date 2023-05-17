@@ -11,6 +11,7 @@ public class Task {
     public void finish() {
         this.completed = true;
     }
+
     Task(String taskName, Priority priority) {
         this.taskName = taskName;
         this.priority = priority;

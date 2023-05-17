@@ -17,12 +17,12 @@ public class UserCommands {
                     help();
                     break;
                 case "show":
-                    show(tasks);
+                    tasks.read();
                     break;
                 case "sort":
-                    tasks.sortByPriority();
+                    tasks.sort();
                     System.out.println("Task list sorted successsfully.");
-                    show(tasks);
+                    tasks.read();
                     break;
                 case "quit":
                     userOnline = false;
@@ -89,10 +89,6 @@ public class UserCommands {
         } catch(IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public static void show(TaskList tasks) {
-        tasks.read();
     }
 
 }

@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class TaskList {
     Task[] tasks;
 
@@ -66,26 +64,23 @@ public class TaskList {
         this.tasks = newTaskArray;
     }
 
-    public void sortByPriority() {
+
+    public void swapTasksByIndex(int index1, int index2) {
+        Task temp = tasks[index1];
+        tasks[index1] = tasks[index2];
+        tasks[index2] = temp;
+    }
+
+    public void sort() {
         for(int i = 0; i < tasks.length - 1; i++) {
             for(int j = i + 1; j < tasks.length; j++) {
-                switch(tasks[i].priority) {
-                    case HIGH:
-                        break;
-                    case MEDIUM:
-                        if(tasks[j].priority == Task.Priority.HIGH) {
-                            Task temp = tasks[i];
-                            tasks[i] = tasks[j];
-                            tasks[j] = temp;
-                        }
-                        break;
-                    case LOW:
-                        if(tasks[j].priority != Task.Priority.LOW) {
-                            Task temp = tasks[i];
-                            tasks[i] = tasks[j];
-                            tasks[j] = temp;
-                        }
-                        break;
+                if(tasks[i].priority == Task.Priority.HIGH) {
+                } else if(tasks[i].priority == Task.Priority.MEDIUM) {
+                    if (tasks[j].priority == Task.Priority.HIGH) {
+                        swapTasksByIndex(i, j);
+                    }
+                } else if(tasks[j].priority != Task.Priority.LOW) {
+                    swapTasksByIndex(i, j);
                 }
             }
         }
