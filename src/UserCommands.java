@@ -16,7 +16,7 @@ public class UserCommands {
                 case "help":
                     help();
                     break;
-                case "show":
+                case "read":
                     tasks.read();
                     break;
                 case "sort":
