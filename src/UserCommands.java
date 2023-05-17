@@ -12,8 +12,6 @@ public class UserCommands {
             Scanner scanner = new Scanner(System.in);
             String command = scanner.next();
             String userParameter = "";
-//        System.out.println("Command recognized as " + "'" + command + "'.");
-//        System.out.println("Parameters recognized as " + "'" + parameter1 + "'.");
             switch (command) {
                 case "help":
                     help();
@@ -41,6 +39,16 @@ public class UserCommands {
                         System.out.println("Here is the task you are looking for:");
                         System.out.print("Task #" + (desiredTaskIndex + 1) + "/" + tasks.getLength() + ": ");
                         tasks.readTask(desiredTaskIndex);
+                    }
+                    break;
+                case "finish":
+                    userParameter = scanner.nextLine().trim();
+                    int taskFinishedIndex = tasks.searchByName(userParameter);
+                    if(taskFinishedIndex != -1) {
+                        Task taskFinished = tasks.get(taskFinishedIndex);
+                        taskFinished.finish();
+                        System.out.println("Task '" + taskFinished.taskName + "' marked as complete.");
+                        tasks.read();
                     }
                     break;
                 default:

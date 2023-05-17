@@ -20,4 +20,8 @@ Next, prompts user to enter priority
 After this, the task is created with the user's input for its name and priority level
 
 -find (taskName)
-Searches for a desired task by name, then displays the individual task along with its position # (base 1)
+Finds desired task by name, then displays the individual task with its current task # (base 1) /total # of tasks
+
+-finish (taskName)
+Marks inputted task as completed, then reads the new list. The completed task with have a check mark.
+
