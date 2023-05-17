@@ -7,11 +7,33 @@ public class TaskList {
         this.tasks = tasks;
     }
 
+    public Task get(int index) {
+        return tasks[index];
+    }
+
     public void read() {
 //        System.out.println("To do: ");
         for(int i = 0; i < tasks.length; i++) {
             Task currentTask = tasks[i];
-            System.out.println("Task name: " + currentTask.taskName + ", " +
+            String checkboxEmoji;
+            if(currentTask.completed) {
+                checkboxEmoji = "✅";
+            } else {
+                switch(currentTask.priority) {
+                    case HIGH:
+                        checkboxEmoji = "🟥";
+                        break;
+                    case MEDIUM:
+                        checkboxEmoji = "🟨";
+                        break;
+                    case LOW:
+                        checkboxEmoji = "🟦";
+                        break;
+                    default:
+                        checkboxEmoji = "";
+                }
+            }
+            System.out.println(checkboxEmoji + " " + currentTask.taskName + ". " +
                     "Priority level: " + currentTask.priority + ".");
         }
     }
@@ -52,4 +74,5 @@ public class TaskList {
             }
         }
     }
+
 }
