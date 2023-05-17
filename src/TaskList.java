@@ -11,7 +11,7 @@ public class TaskList {
         return tasks[index];
     }
 
-    public void replaceTask(Task taskToReplace, int index) {
+    public void replaceTask(int index, Task taskToReplace) {
         tasks[index] = taskToReplace;
     }
 

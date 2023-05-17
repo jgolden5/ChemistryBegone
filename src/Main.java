@@ -1,5 +1,3 @@
-import com.sun.nio.sctp.PeerAddressChangeNotification;
-
 import java.util.Scanner;
 
 public class Main {
@@ -12,12 +10,13 @@ public class Main {
 
         TaskList tasks = new TaskList(tasksArr);
 
-        tasks.sortByPriority();
         tasks.read();
 
-        tasks.replaceTask(new Task("Real quiz", Task.Priority.MEDIUM),3);
+        System.out.println();
+        UserCommands.launchCommands(tasks);
 
-        System.out.println("");
+        System.out.println();
+        tasks.sortByPriority();
         tasks.read();
     }
 }
