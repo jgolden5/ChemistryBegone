@@ -85,4 +85,18 @@ public class TaskList {
         }
     }
 
+    public int searchByName(String desiredTaskName) {
+        int desiredTaskIndex = -1;
+        for(int i = 0; i < tasks.length; i++) {
+            if(tasks[i].taskName == desiredTaskName) {
+                desiredTaskIndex = i;
+                break;
+            }
+        }
+        if (desiredTaskIndex == -1) {
+            System.out.println("Desired task '" + desiredTaskName + "' not found :(");
+        }
+        return desiredTaskIndex;
+    }
+
 }
