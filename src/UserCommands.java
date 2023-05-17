@@ -5,22 +5,29 @@ import java.util.Scanner;
 
 public class UserCommands {
     public static void launchCommands(TaskList tasks) {
-        System.out.println("Enter a command below");
-        Scanner scanner = new Scanner(System.in);
-        String command = scanner.next();
+        boolean userOnline = true;
+
+        while(userOnline) {
+            System.out.println("Enter a command below");
+            Scanner scanner = new Scanner(System.in);
+            String command = scanner.next();
 //        System.out.println("Command recognized as " + "'" + command + "'.");
 //        System.out.println("Parameters recognized as " + "'" + parameter1 + "'.");
-        switch(command) {
-            case "addtask":
-                System.out.println("Enter task name to be added:");
-                String parameter = scanner.nextLine();
-                userAddTask(parameter, tasks);
-                break;
-            case "help":
-                help();
-                break;
+            switch (command) {
+                case "addtask":
+                    System.out.println("Enter task name to be added:");
+                    String parameter = scanner.nextLine().trim();
+                    userAddTask(parameter, tasks);
+                    break;
+                case "help":
+                    help();
+                    break;
+                case "quit":
+                    userOnline = false;
+                    break;
                 default:
                     System.out.println("Command not recognzied. For help, please type the command help.");
+            }
         }
     }
     public static void userAddTask(String taskName, TaskList tasks) {

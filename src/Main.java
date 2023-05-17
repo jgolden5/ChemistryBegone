@@ -10,13 +10,6 @@ public class Main {
 
         TaskList tasks = new TaskList(tasksArr);
 
-        tasks.read();
-
-        System.out.println();
         UserCommands.launchCommands(tasks);
-
-        System.out.println();
-        tasks.sortByPriority();
-        tasks.read();
     }
 }
