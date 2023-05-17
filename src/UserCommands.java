@@ -11,16 +11,12 @@ public class UserCommands {
             System.out.println("Enter a command below");
             Scanner scanner = new Scanner(System.in);
             String command = scanner.next();
+            String userParameter = "";
 //        System.out.println("Command recognized as " + "'" + command + "'.");
 //        System.out.println("Parameters recognized as " + "'" + parameter1 + "'.");
             switch (command) {
                 case "help":
                     help();
-                    break;
-                case "add":
-                    System.out.println("Enter task name to be added:");
-                    String parameter = scanner.nextLine().trim();
-                    userAddTask(parameter, tasks);
                     break;
                 case "show":
                     show(tasks);
@@ -29,11 +25,26 @@ public class UserCommands {
                     tasks.sortByPriority();
                     System.out.println("Task list sorted successsfully.");
                     show(tasks);
+                    break;
                 case "quit":
                     userOnline = false;
                     break;
+                    //the following commands require a parameter:
+                case "add":
+                    userParameter = scanner.nextLine().trim();
+                    userAddTask(userParameter, tasks);
+                    break;
+                case "find":
+                    userParameter = scanner.nextLine().trim();
+                    int desiredTaskIndex = tasks.searchByName(userParameter);
+                    if(desiredTaskIndex != -1) {
+                        System.out.println("Here is the task you are looking for:");
+                        System.out.print("Task #" + (desiredTaskIndex + 1) + "/" + tasks.getLength() + ": ");
+                        tasks.readTask(desiredTaskIndex);
+                    }
+                    break;
                 default:
-                    System.out.println("Command not recognzied. For help, please type the command help.");
+                    System.out.println("Command not recognized. For help, please type the command help.");
             }
         }
     }

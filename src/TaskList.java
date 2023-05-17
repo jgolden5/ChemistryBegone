@@ -15,34 +15,40 @@ public class TaskList {
         tasks[index] = taskToReplace;
     }
 
+    public void readTask(int index) {
+        Task currentTask = tasks[index];
+        String checkboxEmoji;
+        if (currentTask.completed) {
+            checkboxEmoji = "✅";
+        } else {
+            switch (currentTask.priority) {
+                case HIGH:
+                    checkboxEmoji = "🟥";
+                    break;
+                case MEDIUM:
+                    checkboxEmoji = "🟨";
+                    break;
+                case LOW:
+                    checkboxEmoji = "🟦";
+                    break;
+                default:
+                    checkboxEmoji = "";
+            }
+        }
+        System.out.println(checkboxEmoji + " " + currentTask.taskName + ". " +
+                "Priority level: " + currentTask.priority + ".");
+    }
+
+    public int getLength() {
+        return tasks.length;
+    }
     public void read() {
         System.out.println();
         if (tasks.length == 0) {
             System.out.println("No tasks to show");
         } else {
             for (int i = 0; i < tasks.length; i++) {
-                Task currentTask = tasks[i];
-                String checkboxEmoji;
-                if (currentTask.completed) {
-                    checkboxEmoji = "✅";
-                } else {
-                    switch (currentTask.priority) {
-                        case HIGH:
-                            checkboxEmoji = "🟥";
-                            break;
-                        case MEDIUM:
-                            checkboxEmoji = "🟨";
-                            break;
-                        case LOW:
-                            checkboxEmoji = "🟦";
-                            break;
-                        default:
-                            checkboxEmoji = "";
-                    }
-                }
-
-                System.out.println(checkboxEmoji + " " + currentTask.taskName + ". " +
-                        "Priority level: " + currentTask.priority + ".");
+                readTask(i);
             }
         }
         System.out.println();
@@ -88,7 +94,7 @@ public class TaskList {
     public int searchByName(String desiredTaskName) {
         int desiredTaskIndex = -1;
         for(int i = 0; i < tasks.length; i++) {
-            if(tasks[i].taskName == desiredTaskName) {
+            if(tasks[i].taskName.equals(desiredTaskName)) {
                 desiredTaskIndex = i;
                 break;
             }
