@@ -1,0 +1,6 @@
+addtask
+Prompts user to enter task name to current task list
+(taskName)
+Next, prompts user to enter priority
+(priority) {either low, medium, or high. Defaults to LOW if command is not recognized}
+After this, the task is created with the user's input for its name and priority level.

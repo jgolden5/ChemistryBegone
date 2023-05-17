@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class UserCommands {
@@ -5,16 +8,16 @@ public class UserCommands {
         System.out.println("Enter a command below");
         Scanner scanner = new Scanner(System.in);
         String command = scanner.next();
-        String parameter1 = scanner.next();
 //        System.out.println("Command recognized as " + "'" + command + "'.");
 //        System.out.println("Parameters recognized as " + "'" + parameter1 + "'.");
         switch(command) {
             case "addtask":
-                if(parameter1.trim() == "") {
-                    System.out.println("Enter task name to be added:");
-                    parameter1 = scanner.nextLine();
-                }
-                userAddTask(parameter1, tasks);
+                System.out.println("Enter task name to be added:");
+                String parameter = scanner.nextLine();
+                userAddTask(parameter, tasks);
+                break;
+            case "help":
+                help();
                 break;
                 default:
                     System.out.println("Command not recognzied. For help, please type the command help.");
@@ -38,6 +41,21 @@ public class UserCommands {
         }
         tasks.addTask((new Task(taskName,priority)));
         System.out.println("Added task '" + taskName + "' with priority '" + priority + "' successfully.");
+    }
+
+    public static void help() {
+        try {
+            BufferedReader reader = new BufferedReader(
+                    new FileReader("/Users/jgolden1/IdeaProjects/ChemistryBegone/src/UserCommandHelp")
+            );
+            String line;
+            while((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+            reader.close();
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
