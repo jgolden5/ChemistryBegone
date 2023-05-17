@@ -15,10 +15,9 @@ public class Main {
         tasks.sortByPriority();
         tasks.read();
 
+        tasks.replaceTask(new Task("Real quiz", Task.Priority.MEDIUM),3);
+
         System.out.println("");
-        tasks.get(0).finish();
-        tasks.get(1).finish();
-        tasks.get(2).finish();
         tasks.read();
     }
 }

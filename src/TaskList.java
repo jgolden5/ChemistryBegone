@@ -11,6 +11,10 @@ public class TaskList {
         return tasks[index];
     }
 
+    public void replaceTask(Task taskToReplace, int index) {
+        tasks[index] = taskToReplace;
+    }
+
     public void read() {
 //        System.out.println("To do: ");
         for(int i = 0; i < tasks.length; i++) {
