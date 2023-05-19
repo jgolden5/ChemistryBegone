@@ -25,6 +25,9 @@ Finds desired task by name, then displays the individual task with its current t
 -(c)omplete (taskName)
 Marks inputted task as completed, then reads the new list. The completed task with have a check mark.
 
+-(u)ncomplete (taskName)
+Undoes completion of task by inputted taskName
+
 -(d)elete (taskName)
 Deletes task by inputted task name, then reads the new list
 

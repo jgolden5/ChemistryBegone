@@ -22,8 +22,13 @@ After this, the task is created with the user's input for its name and priority 
 -(f)ind (taskName)
 Finds desired task by name, then displays the individual task with its current task # (base 1) /total # of tasks
 
--(c)omplete (taskName)
+-(c)omplete (taskName) *all
 Marks inputted task as completed, then reads the new list. The completed task with have a check mark.
+*If all is typed as the taskName by the user, then all tasks are marked as complete.
+
+-(u)ncomplete (taskName) *all
+Undoes completion of task by inputted taskName
+*If all is typed as the taskName by the user, then all tasks are marked as not complete.
 
 -(d)elete (taskName)
 Deletes task by inputted task name, then reads the new list

@@ -12,6 +12,10 @@ public class Task {
         this.completed = true;
     }
 
+    public void uncomplete() {
+        this.completed = false;
+    }
+
     Task(String taskName, Priority priority) {
         this.taskName = taskName;
         this.priority = priority;

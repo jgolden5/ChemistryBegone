@@ -53,15 +53,46 @@ public class UserCommands {
                 case "complete":
                 case "c":
                     userParameter = scanner.nextLine().trim();
-                    int taskFinishedIndex = tasks.searchByName(userParameter);
-                    if(taskFinishedIndex != -1) {
-                        Task taskFinished = tasks.get(taskFinishedIndex);
-                        taskFinished.complete();
-                        System.out.println("Task '" + taskFinished.taskName + "' marked as complete.");
-                        tasks.sort();
-                        tasks.read();
+                    if (userParameter.equals("all")) {
+                        for(int i = 0; i < tasks.getLength(); i++) {
+                            tasks.get(i).complete();
+                        }
+                        System.out.println("All tasks marked as completed.");
+                    } else {
+                        int taskFinishedIndex = tasks.searchByName(userParameter);
+                        if (taskFinishedIndex != -1) {
+                            Task taskFinished = tasks.get(taskFinishedIndex);
+                            taskFinished.complete();
+                            System.out.println("Task '" + taskFinished.taskName + "' marked as complete.");
+                            tasks.sort();
+                            tasks.read();
+                        } else {
+                            System.out.println("Task '" + userParameter + "' not found.");
+                        }
                     }
                     break;
+                case "uncomplete":
+                case "u":
+                    userParameter = scanner.nextLine().trim();
+                    if (userParameter.equals("all")) {
+                        for(int i = 0; i < tasks.getLength(); i++) {
+                            tasks.get(i).uncomplete();
+                        }
+                        System.out.println("All tasks marked as not completed.");
+                        tasks.read();
+                    } else {
+                        int taskFinishedIndex = tasks.searchByName(userParameter);
+                        if (taskFinishedIndex != -1) {
+                            Task taskFinished = tasks.get(taskFinishedIndex);
+                            taskFinished.uncomplete();
+                            System.out.println("Task '" + taskFinished.taskName + "' marked as not complete.");
+                            tasks.sort();
+                            tasks.read();
+                        } else {
+                            System.out.println("Task '" + userParameter + "' not found.");
+                        }
+                        break;
+                    }
                 case "delete":
                 case "d":
                     userParameter = scanner.nextLine().trim();
