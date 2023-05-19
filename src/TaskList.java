@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class TaskList {
     Task[] tasks;
 
@@ -44,11 +45,22 @@ public class TaskList {
         System.out.println();
         if (tasks.length == 0) {
             System.out.println("No tasks to show");
-        } else {
-            for (int i = 0; i < tasks.length; i++) {
-                readTask(i);
+        } else if(tasks[0].completed && tasks[tasks.length - 1].completed) {
+            for(int i = 0; i < tasks.length; i++) {
+                if(!tasks[i].completed) {
+                    break;
+                }
+            }
+            System.out.println("✅ All tasks completed! Show list anyway?");
+            Scanner scanner = new Scanner(System.in);
+            String showListAnyway = scanner.next();
+            if(!showListAnyway.contains("y")) {
+                return;
             }
         }
+        for (int i = 0; i < tasks.length; i++) {
+                readTask(i);
+            }
         System.out.println();
     }
 
