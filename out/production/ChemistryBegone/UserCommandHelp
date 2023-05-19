@@ -2,12 +2,12 @@ commands with no parameters:
 -help
 Displays this helpful file with all user commands
 
--show
+-read
 Displays all tasks on current task list, including their completion, names, and priority levels
-*Note: Once tasks are sorted they stay sorted
 
 -sort
-Sorts all tasks by priority level (highest to lowest), and then prints the tasks list to prove they are sorted
+Sorts all tasks by priority level (highest to lowest) and completion (completed tasks last), and then prints the tasks list to prove they are sorted
+*Note: Once tasks are sorted they stay sorted
 
 -quit
 Exits user command line loop. (If this command is not executed, the command line never stops prompting the user.
@@ -25,3 +25,5 @@ Finds desired task by name, then displays the individual task with its current t
 -finish (taskName)
 Marks inputted task as completed, then reads the new list. The completed task with have a check mark.
 
+-delete (taskName)
+Deletes task by inputted task name, then reads the new list

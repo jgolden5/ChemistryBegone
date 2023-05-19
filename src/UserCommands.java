@@ -31,6 +31,7 @@ public class UserCommands {
                 case "add":
                     userParameter = scanner.nextLine().trim();
                     userAddTask(userParameter, tasks);
+                    tasks.read();
                     break;
                 case "find":
                     userParameter = scanner.nextLine().trim();
@@ -39,6 +40,8 @@ public class UserCommands {
                         System.out.println("Here is the task you are looking for:");
                         System.out.print("Task #" + (desiredTaskIndex + 1) + "/" + tasks.getLength() + ": ");
                         tasks.readTask(desiredTaskIndex);
+                    } else {
+                        System.out.println("Desired task '" + userParameter + "' not found :(");
                     }
                     break;
                 case "finish":
@@ -50,6 +53,17 @@ public class UserCommands {
                         System.out.println("Task '" + taskFinished.taskName + "' marked as complete.");
                         tasks.sort();
                         tasks.read();
+                    }
+                    break;
+                case "delete":
+                    userParameter = scanner.nextLine().trim();
+                    int desiredIndexOfTaskToDelete = tasks.searchByName(userParameter);
+                    tasks.deleteTask(userParameter);
+                    if(desiredIndexOfTaskToDelete != -1) {
+                        System.out.println("Task '" + userParameter + "' deleted successfully.");
+                        tasks.read();
+                    } else {
+                        System.out.println("Desired task '" + userParameter + "' not found :(");
                     }
                     break;
                 default:

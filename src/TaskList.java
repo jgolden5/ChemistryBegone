@@ -108,10 +108,22 @@ public class TaskList {
                 break;
             }
         }
-        if (desiredTaskIndex == -1) {
-            System.out.println("Desired task '" + desiredTaskName + "' not found :(");
-        }
         return desiredTaskIndex;
+    }
+
+    public void deleteTask(String taskName) {
+        int desiredTaskToBeDeletedIndex = searchByName(taskName);
+        if(desiredTaskToBeDeletedIndex != -1) {
+            Task[] newTaskList = new Task[tasks.length - 1];
+            int newTaskListIncrementer = 0;
+            for(int i = 0; i < tasks.length; i++) {
+                if(i != desiredTaskToBeDeletedIndex) {
+                    newTaskList[newTaskListIncrementer] = tasks[i];
+                    newTaskListIncrementer++;
+                }
+            }
+            tasks = newTaskList;
+        }
     }
 
 }
