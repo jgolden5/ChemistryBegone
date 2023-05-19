@@ -8,7 +8,7 @@ public class Task {
     Priority priority;
     boolean completed = false;
 
-    public void finish() {
+    public void complete() {
         this.completed = true;
     }
 

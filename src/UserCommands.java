@@ -14,26 +14,32 @@ public class UserCommands {
             String userParameter = "";
             switch (command) {
                 case "help":
+                case "h":
                     help();
                     break;
                 case "read":
+                case "r":
                     tasks.read();
                     break;
                 case "sort":
+                case "s":
                     tasks.sort();
-                    System.out.println("Task list sorted successsfully.");
+                    System.out.println("Task list sorted successfully.");
                     tasks.read();
                     break;
                 case "quit":
+                case "q":
                     userOnline = false;
                     break;
                     //the following commands require a parameter:
                 case "add":
+                case "a":
                     userParameter = scanner.nextLine().trim();
                     userAddTask(userParameter, tasks);
                     tasks.read();
                     break;
                 case "find":
+                case "f":
                     userParameter = scanner.nextLine().trim();
                     int desiredTaskIndex = tasks.searchByName(userParameter);
                     if(desiredTaskIndex != -1) {
@@ -44,18 +50,20 @@ public class UserCommands {
                         System.out.println("Desired task '" + userParameter + "' not found :(");
                     }
                     break;
-                case "finish":
+                case "complete":
+                case "c":
                     userParameter = scanner.nextLine().trim();
                     int taskFinishedIndex = tasks.searchByName(userParameter);
                     if(taskFinishedIndex != -1) {
                         Task taskFinished = tasks.get(taskFinishedIndex);
-                        taskFinished.finish();
+                        taskFinished.complete();
                         System.out.println("Task '" + taskFinished.taskName + "' marked as complete.");
                         tasks.sort();
                         tasks.read();
                     }
                     break;
                 case "delete":
+                case "d":
                     userParameter = scanner.nextLine().trim();
                     int desiredIndexOfTaskToDelete = tasks.searchByName(userParameter);
                     tasks.deleteTask(userParameter);
@@ -67,7 +75,7 @@ public class UserCommands {
                     }
                     break;
                 default:
-                    System.out.println("Command not recognized. For help, please type the command help.");
+                    System.out.println("Command not recognized. For help, please type the command h or help.");
             }
         }
     }
