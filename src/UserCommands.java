@@ -91,8 +91,8 @@ public class UserCommands {
                         } else {
                             System.out.println("Task '" + userParameter + "' not found.");
                         }
-                        break;
                     }
+                    break;
                 case "delete":
                 case "d":
                     userParameter = scanner.nextLine().trim();
