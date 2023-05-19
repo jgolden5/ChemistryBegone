@@ -48,6 +48,7 @@ public class UserCommands {
                         Task taskFinished = tasks.get(taskFinishedIndex);
                         taskFinished.finish();
                         System.out.println("Task '" + taskFinished.taskName + "' marked as complete.");
+                        tasks.sort();
                         tasks.read();
                     }
                     break;
