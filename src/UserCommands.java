@@ -96,13 +96,25 @@ public class UserCommands {
                 case "delete":
                 case "d":
                     userParameter = scanner.nextLine().trim();
-                    int desiredIndexOfTaskToDelete = tasks.searchByName(userParameter);
-                    tasks.deleteTask(userParameter);
-                    if(desiredIndexOfTaskToDelete != -1) {
-                        System.out.println("Task '" + userParameter + "' deleted successfully.");
-                        tasks.read();
+                    if (userParameter.equals("all")) {
+                        System.out.println("Are you sure you want to delete all tasks? (y or n)");
+                        userParameter = scanner.nextLine();
+                        if(userParameter.contains("y")) {
+                            tasks = new TaskList(new Task[]{});
+                            System.out.println("All tasks deleted successfully.");
+                            tasks.read();
+                        } else {
+                            System.out.println("Delete cancelled.");
+                        }
                     } else {
-                        System.out.println("Desired task '" + userParameter + "' not found :(");
+                        int desiredIndexOfTaskToDelete = tasks.searchByName(userParameter);
+                        tasks.deleteTask(userParameter);
+                        if (desiredIndexOfTaskToDelete != -1) {
+                            System.out.println("Task '" + userParameter + "' deleted successfully.");
+                            tasks.read();
+                        } else {
+                            System.out.println("Desired task '" + userParameter + "' not found :(");
+                        }
                     }
                     break;
                 default:
