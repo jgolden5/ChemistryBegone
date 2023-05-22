@@ -135,8 +135,8 @@ public class UserCommands {
         } else if(priorityInput.contains("l")) {
             priority = Task.Priority.LOW;
         } else {
-            priority = Task.Priority.LOW;
-            System.out.println("Priority not recognized. Set to low by default.");
+            priority = Task.Priority.HIGH;
+            System.out.println("Priority not recognized. Set to high by default.");
         }
         tasks.add((new Task(taskName,priority)));
         System.out.println("Added task '" + taskName + "' with priority '" + priority + "' successfully.");
