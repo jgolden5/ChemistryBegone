@@ -2,7 +2,7 @@ commands with no parameters:
 -(h)elp
 Displays this helpful file with all user commands
 
--(r)ead
+-(l)ist
 Displays all tasks on current task list, including their completion, names, and priority levels
 
 -(s)ort
@@ -39,7 +39,7 @@ c - complete
 d - delete
 f - find
 h - help
+l - list
 q - quit
-r - read
 s - sort
 u - uncomplete

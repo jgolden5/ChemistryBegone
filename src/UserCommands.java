@@ -17,15 +17,15 @@ public class UserCommands {
                 case "h":
                     help();
                     break;
-                case "read":
-                case "r":
-                    tasks.read();
+                case "list":
+                case "l":
+                    tasks.list();
                     break;
                 case "sort":
                 case "s":
                     tasks.sort();
                     System.out.println("Task list sorted successfully.");
-                    tasks.read();
+                    tasks.list();
                     break;
                 case "quit":
                 case "q":
@@ -36,7 +36,7 @@ public class UserCommands {
                 case "a":
                     userParameter = scanner.nextLine().trim();
                     userAddTask(userParameter, tasks);
-                    tasks.read();
+                    tasks.list();
                     break;
                 case "find":
                 case "f":
@@ -45,7 +45,7 @@ public class UserCommands {
                     if(desiredTaskIndex != -1) {
                         System.out.println("Here is the task you are looking for:");
                         System.out.print("Task #" + (desiredTaskIndex + 1) + "/" + tasks.getLength() + ": ");
-                        tasks.readTask(desiredTaskIndex);
+                        tasks.printTask(desiredTaskIndex);
                     } else {
                         System.out.println("Desired task '" + userParameter + "' not found :(");
                     }
@@ -65,7 +65,7 @@ public class UserCommands {
                             taskFinished.complete();
                             System.out.println("Task '" + taskFinished.taskName + "' marked as complete.");
                             tasks.sort();
-                            tasks.read();
+                            tasks.list();
                         } else {
                             System.out.println("Task '" + userParameter + "' not found.");
                         }
@@ -79,7 +79,7 @@ public class UserCommands {
                             tasks.get(i).uncomplete();
                         }
                         System.out.println("All tasks marked as not completed.");
-                        tasks.read();
+                        tasks.list();
                     } else {
                         int taskFinishedIndex = tasks.searchByName(userParameter);
                         if (taskFinishedIndex != -1) {
@@ -87,7 +87,7 @@ public class UserCommands {
                             taskFinished.uncomplete();
                             System.out.println("Task '" + taskFinished.taskName + "' marked as not complete.");
                             tasks.sort();
-                            tasks.read();
+                            tasks.list();
                         } else {
                             System.out.println("Task '" + userParameter + "' not found.");
                         }
@@ -102,7 +102,7 @@ public class UserCommands {
                         if(userParameter.contains("y")) {
                             tasks = new TaskList(new Task[]{});
                             System.out.println("All tasks deleted successfully.");
-                            tasks.read();
+                            tasks.list();
                         } else {
                             System.out.println("Delete cancelled.");
                         }
@@ -111,7 +111,7 @@ public class UserCommands {
                         tasks.deleteTask(userParameter);
                         if (desiredIndexOfTaskToDelete != -1) {
                             System.out.println("Task '" + userParameter + "' deleted successfully.");
-                            tasks.read();
+                            tasks.list();
                         } else {
                             System.out.println("Desired task '" + userParameter + "' not found :(");
                         }

@@ -14,7 +14,7 @@ public class TaskList {
         tasks[index] = taskToReplace;
     }
 
-    public void readTask(int index) {
+    public void printTask(int index) {
         Task currentTask = tasks[index];
         String checkboxEmoji;
         if (currentTask.completed) {
@@ -41,7 +41,7 @@ public class TaskList {
     public int getLength() {
         return tasks.length;
     }
-    public void read() {
+    public void list() {
         System.out.println();
         if (tasks.length == 0) {
             System.out.println("No tasks to show");
@@ -59,7 +59,7 @@ public class TaskList {
             }
         }
         for (int i = 0; i < tasks.length; i++) {
-                readTask(i);
+                printTask(i);
             }
         System.out.println();
     }
