@@ -145,7 +145,7 @@ public class UserCommands {
     public static void help() {
         try {
             BufferedReader reader = new BufferedReader(
-                    new FileReader("/Users/jgolden1/IdeaProjects/ChemistryBegone/src/UserCommandHelp")
+                    new FileReader("/Users/jgolden1/JavaProjects/ChemistryBegone/src/UserCommandHelp")
             );
             String line;
             while((line = reader.readLine()) != null) {
